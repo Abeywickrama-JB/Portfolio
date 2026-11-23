@@ -109,7 +109,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 // ===== TYPED EFFECT =====
-const words = ['AI Solutions.', 'ML Models.', 'Web Platforms.', 'Mobile Apps.', 'Smart Systems.'];
+const words = ['AI Solutions.', 'ML Models.', 'Data Insights.', 'BI Dashboards.', 'Smart Systems.'];
 const typedEl = document.getElementById('typed');
 let wordIdx = 0, charIdx = 0, deleting = false;
 
@@ -167,19 +167,19 @@ document.querySelectorAll('.skill-bar').forEach(bar => {
 const filterBtns = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.project-card');
 filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        cards.forEach(card => {
-            const cats = card.dataset.category || '';
-            if (f === 'all' || cats.includes(f)) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        });
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    cards.forEach(card => {
+      const cats = (card.dataset.category || '').trim().split(/\s+/);
+      if (f === 'all' || cats.includes(f)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
     });
+  });
 });
 
 // ===== CONTACT FORM =====
